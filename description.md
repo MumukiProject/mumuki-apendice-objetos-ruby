@@ -1,18 +1,18 @@
 ## Referencia rápida del lenguaje Ruby
 
-Ruby es un lenguaje de Programación Orientada a Objetos gratis y de código abierto creado en Japón. Su sintaxis amigable lo hace muy popular sobre todo en el desarrollo web; de hecho una gran parte de la Plataforma Mumuki está desarrollada en este lenguaje
+Ruby es un lenguaje de Programación Orientada a Objetos gratis y de código abierto creado en Japón. Su sintaxis amigable lo hace muy popular sobre todo en el desarrollo web; de hecho una gran parte de la Plataforma Mumuki está desarrollada en este lenguaje.
 
 ### Objeto
 
 > A partir de la [Lección 1: Objetos y mensajes](../../guides/mumukiproject/mumuki-guia-ruby-objetos-y-mensajes)
 
-Los objetos son entes computacionales con los interactuaremos para resolver problemas.
+Los objetos son entes computacionales con los que interactuaremos para resolver problemas.
 
 ### Ambiente
 
 > A partir de la [Lección 1: Objetos y mensajes](../../guides/mumukiproject/mumuki-guia-ruby-objetos-y-mensajes)
 
-El lugar donde "viven" los objetos con los cuales podemos interactuar.
+El ambiente es el lugar donde "viven" los objetos con los cuales podemos interactuar.
 
 ### Envío de mensajes
 
@@ -25,7 +25,8 @@ La manera de interactuar con los objetos es a través del envío de mensajes hac
 ム Pepita.comer!(20)
 ```
 
-En este caso `Pepita` es el objeto al cual le mandamos:
+En este caso `Pepita` es el objeto al cual le enviamos:
+
 * el mensaje `volar!` que no posee argumentos;
 * y el mensaje `comer!` con el argumento `20`.
 
@@ -78,37 +79,6 @@ numero_favorito = 8
 color_favorito = "Violeta"
 ```
 
-### Atributo
-
-> A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
-
-`atributo` es un atributo de `objeto` cuando `atributo` es una referencia que `objeto` conoce. `atributo` permite representar una característica propia de `objeto`. Los atributos se escriben anteponiendo `@`.
-
-```ruby
-module Pepita
-    @energia = 100
-
-    def self.cantar!
-    end
-
-    def self.volar! (distancia)
-        @energia = @energia - distancia * 2
-    end
-
-    def self.comer! (cantidad, comida)
-end
-```
-
-En este caso `@energia` es un atributo de `Pepita` que:
-* tiene un valor inicial de `100`;
-* cuando `Pepita` recibe el mensaje `volar!` disminuye el doble de la distancia recorrida.
-
-### Estado
-
-> A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
-
-El estado de un objeto es el conjunto de atributos que posee. Todos los estados son privados, para acceder o modificar los atributos de un objeto es necesario definir métodos dentro del mismo.
-
 ### `self`
 
 > A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
@@ -135,6 +105,38 @@ end
 > A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
 
 La responsabilidad, en la programación con objetos, está relacionada con qué objeto debería resolver las determinadas partes de nuestro problema. Si un objeto no es responsable de hacer algo lo debe delegar en el correspondiente.
+
+### Atributo
+
+> A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
+
+Los atributos son objetos que me permiten representar una característica de otro objeto. Un objeto conoce a todos sus atributos por lo cual puede enviarles mensajes. Los atributos se escriben anteponiendo `@`.
+
+```ruby
+module Pepita
+    @energia = 100
+
+    def self.cantar!
+    end
+
+    def self.volar! (distancia)
+        @energia = @energia - distancia * 2
+    end
+
+    def self.comer! (cantidad, comida)
+end
+```
+
+En este caso `@energia` es un atributo de `Pepita` que:
+
+* tiene un valor inicial de `100`;
+* cuando `Pepita` recibe el mensaje `volar!` disminuye el doble de la distancia recorrida.
+
+### Estado
+
+> A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
+
+El estado de un objeto es el conjunto de atributos que posee. Todos los estados son privados, para acceder o modificar los atributos de un objeto es necesario definir métodos dentro del mismo.
 
 ### Accesors
 
@@ -167,11 +169,33 @@ A la hora de ponerle un nombre a los métodos que definimos hay que tener en cue
 * Los getters llevan el mismo nombre que el atributo que retornan pero sin el `@`.
 * Los setters llevan el mismo nombre que el atributo que modifican, pero sin el `@` y con `=` al final.
 
+```ruby
+module Pepita
+    @energia = 100
+    
+    def self.energia
+        @energia
+    end
+
+    def self.energia=(nueva_energia)
+        @energia = nueva_energia
+    end
+
+    def self.volar! (distancia)
+        @energia = @energia - distancia * 2
+    end
+    
+    def self.esta_cansada?
+      @energia < 10
+    end
+end
+```
+
 ### Alternativa Condicional
 
 > A partir de la [Lección 3: Polimorfismo y encapsulamiento](../../guides/mumukiproject/mumuki-guia-ruby-polimorfismo)
 
-La alternativa condicional en Ruby comienza con `if` seguido por la condición y termina con `end`.
+La alternativa condicional en Ruby comienza con `if` seguido por la condición y termina con `end`:
 
 ```ruby
 if Pepita.esta_aburrida?
@@ -179,7 +203,7 @@ if Pepita.esta_aburrida?
 end
 ```
 
-En caso de contar con un rama de `else`, `end` va al final del mismo 
+En caso de contar con un rama de `else`, `end` va al final del mismo:
 
 ```ruby
 if Norita.tiene_hambre?
@@ -189,7 +213,7 @@ else
 end
 ```
 
-A diferencia de otros lenguajes, en Ruby podemos hacer `elsif` en caso de tener un `if` dentro de un `else`.
+A diferencia de otros lenguajes, en Ruby podemos hacer `elsif` en caso de tener un `if` dentro de un `else`:
 
 ```ruby
 if Cleo.esta_cansada?
@@ -205,7 +229,7 @@ end
 
 > A partir de la [Lección 3: Polimorfismo y encapsulamiento](../../guides/mumukiproject/mumuki-guia-ruby-polimorfismo)
 
-El polimorfismo en objetos es la capacidad que tiene un objeto de poder enviarle el mismo mensaje indistintamente a objetos distintos. Estos objetos deben entender este mensaje más allá de cómo este definido el método asociado al mismo. Para que estemos ante un caso de polimorfismo es necesaria la presencia de al menos tres objetos: uno que envíe el mensaje y dos distintos que puedan entender el mismo.
+El polimorfismo en objetos es la capacidad que tiene un objeto de poder enviarle el mismo mensaje indistintamente a objetos distintos. Estos objetos deben entender este mensaje más allá de cómo este definido el método asociado al mismo. Para que estemos ante un caso de polimorfismo es necesaria la presencia de al menos tres objetos: uno que envíe el mensaje y dos distintos que puedan entenderlo.
 
 ### Encapsulamiento
 
@@ -436,11 +460,11 @@ Las clases abstractas son clases que no se desea instanciar. Sirven para abstrae
 
 Las clases abstractas especifican que métodos deben implementar aquellas clases que heredan de ella. Estos métodos, llamados abstractos, no tienen comportamiento y el mismo está definido en sus subclases en métodos concretos. Por ejemplo, en la clase `Mascota` tenemos el método concreto `jugar!` y el método abstracto `recibir_duenio!`.
 
-### Super
+### `super`
 
 > A partir de la [Lección 7: Herencia](../../guides/mumukiproject/mumuki-guia-ruby-herencia)
 
-`super` nos permite redefinir un método pero sólo agregar una parte de nueva funcionalidad, reutilizando la lógica común que está definida en la superclase. Al utilizar `super` en el método de una subclase, se evalúa el método con el mismo nombre de su superclase.
+`super` nos permite redefinir un método pero sólo agregar una parte nueva a la funcionalidad, reutilizando la lógica común que está definida en la superclase. Al utilizar `super` en el método de una subclase, se evalúa el método con el mismo nombre de su superclase.
 
 Por ejemplo:
 
@@ -745,8 +769,6 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 ```
 
 ### `raise mensaje` 
-
-#OJO! ¿lo contamos como método?
 
 > A partir de la [Lección 8: Excepciones](../../guides/mumukiproject/mumuki-guia-ruby-excepciones)
 >
