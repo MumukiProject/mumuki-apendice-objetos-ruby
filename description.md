@@ -27,7 +27,7 @@ La manera de interactuar con los objetos es a través del envío de mensajes hac
 
 En este caso `Pepita` es el objeto al cual le enviamos:
 
-* el mensaje `volar!` que no posee argumentos;
+* el mensaje `volar!` que no recibe argumentos;
 * y el mensaje `comer!` con el argumento `20`.
 
 ### Interfaz
@@ -278,7 +278,7 @@ Para ejecutar el código dentro del bloque debemos enviarle el mensaje `call` co
 
 > A partir de la [Lección 5: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
 
-Cuando le enviamos un mensaje no conocemos al objeto directamente sino que lo hacemos a través de etiquetas llamadas referencias. Algunos ejemplos de referencias y envío de mensajes a través de las mismas son:
+Cuando le enviamos un mensaje a un objeto, en realidad no lo conocemos directamente sino que lo hacemos a través de etiquetas llamadas referencias. Algunos ejemplos de referencias y envío de mensajes a través de las mismas son:
 
 * las variables
 
