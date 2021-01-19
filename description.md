@@ -110,7 +110,7 @@ La responsabilidad, en la programación con objetos, está relacionada con qué 
 
 > A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
 
-Los atributos son objetos que me permiten representar una característica de otro objeto. Un objeto conoce a todos sus atributos por lo cual puede enviarles mensajes. Los atributos se escriben anteponiendo `@`.
+Los atributos son objetos que me permiten representar una característica de otro objeto. Un objeto conoce a todos sus atributos por lo que puede enviarles mensajes. Los atributos se escriben anteponiendo `@`.
 
 ```ruby
 module Pepita
@@ -235,13 +235,13 @@ El polimorfismo en objetos es la capacidad que tiene un objeto de poder enviarle
 
 > A partir de la [Lección 3: Polimorfismo y encapsulamiento](../../guides/mumukiproject/mumuki-guia-ruby-polimorfismo)
 
-El encapsulamiento es la práctica de minimizar la exposición del estado de nuestros objetos. Una manera de cuidar el encapsulamiento de nuestros objetos es definiendo solo aquellos accesors que sean indispensables.
+Una buena práctica es definir solo aquellos accesors que sean indispensables para minimizar la exposición del estado de nuestros objetos. A esta práctica la llamamos encapsulamiento.
 
 ### Colecciones
 
 > A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 
-Las colecciones son objetos que contienen otros objetos. Un tipo de colección son las listas, las cuales se escriben entre corchetes (`[]`) y permiten tener objetos repetidos dentro de ellas.
+Las colecciones son objetos que contienen otros objetos. Un tipo de colección son las listas, las cuales se escriben entre corchetes (`[]`) y permiten tener objetos repetidos con un orden determinado dentro de ellas.
 
 ``` ruby
 ム libros = [Fundacion, Socorro, Elevacion, Kriptonita]
@@ -261,7 +261,7 @@ Los bloques son objetos que representan un mensaje o una secuencia de envíos de
 Estos bloques de código pueden recibir parámetros escritos entre `||` separados por comas.
 
 ``` ruby
-ム saludador = proc { |saludo, nombre| saludo + " " + nombre + " , que lindo día para programar, ¿no?"}
+ム saludador = proc { |saludo, nombre| saludo + " " + nombre + ", que lindo día para programar, ¿no?"}
 ```
 
 Para ejecutar el código dentro del bloque debemos enviarle el mensaje `call` con los argumentos correspondientes.
@@ -271,7 +271,7 @@ Para ejecutar el código dentro del bloque debemos enviarle el mensaje `call` co
 => 2022
 
 ム saludador.call("Hola", "Jor")
-=> "Hola Jor , que lindo día para programar, ¿no?"
+=> "Hola Jor, que lindo día para programar, ¿no?"
 ```
 
 ### Referencias
@@ -292,10 +292,10 @@ dia.upcase
 ``` ruby
 "insomnio".upcase
             ^
-            +-- Acá hay una referencia implícita al objeto "ni hao"
+            +-- Acá hay una referencia implícita al objeto "insomnio"
 ```
 
-* los objetos bien conocidos
+* los objetos bien conocidos (los que declaramos con `module`)
 
 ``` ruby
 module Pepita
@@ -336,8 +336,8 @@ end
 
 Las clases son objetos que sirven de moldes para crear nuevos objetos que tienen el mismo comportamiento. Estos nuevos objetos creados a partir de una clase son instancias de la misma. Es importante tener en cuenta que:
 
-* Todo objeto es siempre instancia de una y sólo una clase.
-* No se puede cambiar la clase de un objeto en tiempo de ejecución.
+* Todo instancia pertenece a una y sólo una clase.
+* No se puede cambiar la clase de una instancia en tiempo de ejecución.
 
 ### Constructores
 
@@ -361,7 +361,7 @@ fausto = Persona.new(390)
 
 > A partir de la [Lección 7: Herencia](../../guides/mumukiproject/mumuki-guia-ruby-herencia)
 
-Cuando dos objetos repiten lógica, creamos una clase con esta lógica. En el caso que dos clases repitan lógica debemos crear una nueva clase, a la cual llamamos superclase, que tenga esta lógica, definiendo en cada una de las clases iniciales, llamadas subclases, sólo lo particular de cada una.
+Cuando dos objetos repiten lógica, creamos una clase con el comportamiento en común. En el caso que dos clases repitan lógica debemos crear una nueva clase, a la cual llamamos superclase, que la contenga, definiendo en cada una de las clases iniciales, llamadas subclases, sólo lo particular de cada una.
 
 Por ejemplo si tuvieramos:
 
@@ -375,7 +375,7 @@ class Gato
 	    @energia -= un_tiempo
     end
     
-    def recibirDueño!
+    def recibir_duenio!
         @energia -= 10
     end
 end
@@ -481,7 +481,7 @@ end
 
 > A partir de la [Lección 8: Excepciones](../../guides/mumukiproject/mumuki-guia-ruby-excepciones)
 
-Una excepción es una indicación de que algo salió mal. Cuando lanzamos una excepción provocamos un error explícito que interrumpe el flujo de nuestro programa. La excepción no solo aborta el método en el cual la lanzamos sino también la ejecución de todos los métodos de la cadena de envío de mensaje pero no descarta los cambios realizados anteriormente; es por este motivo que es importante saber en qué momento debemos lanzarla. Por último, el mensaje con el cual lanzamos la excepción debe ser expresivo para entender por qué se interrumpió el flujo.
+Una excepción es una indicación de que algo salió mal. Cuando lanzamos una excepción provocamos un error explícito que interrumpe el flujo de nuestro programa. La excepción no solo aborta el método en el cual la lanzamos sino también la ejecución de todos los métodos de la cadena de envío de mensajes pero no descarta los cambios realizados anteriormente; es por este motivo que es importante saber en qué momento debemos lanzarla. Por último, el mensaje con el cual lanzamos la excepción debe ser expresivo para entender por qué se interrumpió el flujo.
 
 ### Operadores matemáticos
 
@@ -583,20 +583,6 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 => [8, 42]
 ```
 
-### `coleccion.delete elemento`
-
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
->
-> Remueve `elemento` de `coleccion`.
-
-```ruby
-ム numeros_de_la_suerte = [8, 7, 42]
-
-ム numeros_de_la_suerte.delete 7
-
-ム numeros_de_la_suerte
-=> [8, 42]
-```
 ### `coleccion.include? elemento`
 
 > A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
@@ -696,7 +682,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 
 > A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
-> Ejecuta el código de bloque por cada elemento de `coleccion`. `each` no retorna una nueva colección sino que tiene efecto sobre la original.
+> Ejecuta el código de bloque por cada elemento de `coleccion`. El método `each` no retorna una nueva colección sino que tiene efecto sobre la original.
 
 ```ruby
 ム golondrinas = [Pepita, Norita, Mercedes]
