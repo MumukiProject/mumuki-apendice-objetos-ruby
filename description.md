@@ -18,9 +18,9 @@
 <li><a title="" href="#alternativa-condicional">Alternativa Condicional</a></li>
 <li><a title="" href="#polimorfismo">Polimorfismo</a></li>
 <li><a title="" href="#encapsulamiento">Encapsulamiento</a></li>
+<li><a title="" href="#referencias">Referencias</a></li>
 <li><a title="" href="#colecciones">Colecciones</a></li>
 <li><a title="" href="#bloques-de-codigo">Bloques de código</a></li>
-<li><a title="" href="#referencias">Referencias</a></li>
 <li><a title="" href="#clases-e-instancias">Clases e instancias</a></li>
 <li><a title="" href="#constructores">Constructores</a></li>
 <li><a title="" href="#herencia">Herencia</a></li>
@@ -44,21 +44,21 @@
 <ul>
 <li><a title="" href="#numeroabs"><code>numero.abs</code></a></li>
 <li><a title="" href="#numerotimes-bloque"><code>numero.times bloque</code></a></li>
-<li><a title="" href="#coleccionpush-elemento"><code>coleccion.push elemento</code></a></li>
-<li><a title="" href="#colecciondelete-elemento"><code>coleccion.delete elemento</code></a></li>
-<li><a title="" href="#coleccioninclude-elemento"><code>coleccion.include? elemento</code></a></li>
-<li><a title="" href="#coleccionsize"><code>coleccion.size</code></a></li>
-<li><a title="" href="#coleccionselect-bloqueconcondicion"><code>coleccion.select bloqueConCondicion</code></a></li>
-<li><a title="" href="#coleccionfind-bloqueconcondicion"><code>coleccion.find bloqueConCondicion</code></a></li>
-<li><a title="" href="#coleccionall-bloqueconcondicion"><code>coleccion.all? bloqueConCondicion</code></a></li>
-<li><a title="" href="#coleccionmap-bloque"><code>coleccion.map bloque</code></a></li>
-<li><a title="" href="#coleccioncount-bloqueconcondicion"><code>coleccion.count bloqueConCondicion</code></a></li>
-<li><a title="" href="#coleccionsum-bloque"><code>coleccion.sum bloque</code></a></li>
-<li><a title="" href="#coleccioneach-bloque"><code>coleccion.each bloque</code></a></li>
 <li><a title="" href="#stringupcase"><code>string.upcase</code></a></li>
 <li><a title="" href="#stringsize"><code>string.size</code></a></li>
 <li><a title="" href="#numeroeven"><code>numero.even?</code></a></li>
 <li><a title="" href="#objetoequal-otro_objeto"><code>objeto.equal? otro_objeto</code></a></li>
+<li><a title="" href="#coleccionpush-elemento"><code>coleccion.push elemento</code></a></li>
+<li><a title="" href="#colecciondelete-elemento"><code>coleccion.delete elemento</code></a></li>
+<li><a title="" href="#coleccioninclude-elemento"><code>coleccion.include? elemento</code></a></li>
+<li><a title="" href="#coleccionsize"><code>coleccion.size</code></a></li>
+<li><a title="" href="#coleccionselect-bloqueconcondicion"><code>coleccion.select bloque_con_condicion</code></a></li>
+<li><a title="" href="#coleccionfind-bloqueconcondicion"><code>coleccion.find bloque_con_condicion</code></a></li>
+<li><a title="" href="#coleccionall-bloqueconcondicion"><code>coleccion.all? bloque_con_condicion</code></a></li>
+<li><a title="" href="#coleccionmap-bloque"><code>coleccion.map bloque</code></a></li>
+<li><a title="" href="#coleccioncount-bloqueconcondicion"><code>coleccion.count bloque_con_condicion</code></a></li>
+<li><a title="" href="#coleccionsum-bloque"><code>coleccion.sum bloque</code></a></li>
+<li><a title="" href="#coleccioneach-bloque"><code>coleccion.each bloque</code></a></li>
 <li><a title="" href="#clasenew"><code>Clase.new</code></a></li>
 <li><a title="" href="#raise-mensaje"><code>raise mensaje</code></a></li>
 </ul>
@@ -70,17 +70,15 @@
 
 Ruby es un lenguaje de Programación Orientada a Objetos gratis y de código abierto creado en Japón. Su sintaxis amigable lo hace muy popular sobre todo en el desarrollo web; de hecho una gran parte de la Plataforma Mumuki está desarrollada en este lenguaje.
 
-<h3 id="objeto">Objeto</h3>
+<h3 id="objeto">Objeto y ambiente</h3>
 
 > A partir de la [Lección 1: Objetos y mensajes](../../guides/mumukiproject/mumuki-guia-ruby-objetos-y-mensajes)
 
-Los objetos son entes computacionales con los que interactuaremos para resolver problemas.
+Los objetos son entes computacionales con los que interactuaremos para resolver problemas. Estos objetos "viven"en un ambiente:
 
-<h3 id="ambiente">Ambiente</h3>
+<img src="https://raw.githubusercontent.com/MumukiProject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado/master/assets/pepita-energia-100.png" width="300" />
 
-> A partir de la [Lección 1: Objetos y mensajes](../../guides/mumukiproject/mumuki-guia-ruby-objetos-y-mensajes)
-
-El ambiente es el lugar donde "viven" los objetos con los cuales podemos interactuar.
+En este ambiente podemos ver a los objetos `Pepita`, `90` y `100`. 
 
 <h3 id="envio-de-mensajes">Envío de mensajes</h3>
 
@@ -307,48 +305,9 @@ El polimorfismo en objetos es la capacidad que tiene un objeto de poder enviarle
 
 Una buena práctica es definir solo aquellos accesors que sean indispensables para minimizar la exposición del estado de nuestros objetos. A esta práctica la llamamos encapsulamiento.
 
-<h3 id="colecciones">Colecciones</h3>
-
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
-
-Las colecciones son objetos que contienen otros objetos. Un tipo de colección son las listas, las cuales se escriben entre corchetes (`[]`) y permiten tener objetos repetidos con un orden determinado dentro de ellas.
-
-``` ruby
-ム libros = [Fundacion, Socorro, Elevacion, Kriptonita]
-```
-
-<h3 id="bloques-de-codigo">Bloques de código</h3>
-
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
-
-Los bloques son objetos que representan un mensaje o una secuencia de envíos de mensajes, sin ejecutar, lista para ser evaluada cuando corresponda. 
-
-``` ruby
-ム anio_actual = 2021
-ム anio_nuevo = proc { anio_actual = anio_actual + 1 }
-```
-
-Estos bloques de código pueden recibir parámetros escritos entre `||` separados por comas.
-
-``` ruby
-ム saludador = proc { |saludo, nombre| saludo + " " + nombre + ", que lindo día para programar, ¿no?" }
-```
-
-Dentro de cada bloque podemos usar y enviarle mensajes tanto a los parámetros del bloque (`saludo` y `nombre`) como a las variables declaradas fuera del mismo (`anio_actual`).
-
-Por último, para ejecutar el código dentro del bloque debemos enviarle el mensaje `call` con los argumentos correspondientes.
-
-``` ruby
-ム anio_nuevo.call
-=> 2022
-
-ム saludador.call("Hola", "Jor")
-=> "Hola Jor, que lindo día para programar, ¿no?"
-```
-
 <h3 id="referencias">Referencias</h3>
 
-> A partir de la [Lección 5: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
+> A partir de la [Lección 4: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
 
 Cuando le enviamos un mensaje a un objeto, en realidad no lo conocemos directamente sino que lo hacemos a través de etiquetas llamadas referencias. Algunos ejemplos de referencias y envío de mensajes a través de las mismas son:
 
@@ -400,6 +359,44 @@ module Guille
         @paginas_leidas = @paginas_leidas + libro.cantidad_de_paginas
     end
 end
+```
+<h3 id="colecciones">Colecciones</h3>
+
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+
+Las colecciones son objetos que contienen otros objetos. Un tipo de colección son las listas, las cuales se escriben entre corchetes (`[]`) y permiten tener objetos repetidos con un orden determinado dentro de ellas.
+
+``` ruby
+ム libros = [Fundacion, Socorro, Elevacion, Kriptonita]
+```
+
+<h3 id="bloques-de-codigo">Bloques de código</h3>
+
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+
+Los bloques son objetos que representan un mensaje o una secuencia de envíos de mensajes, sin ejecutar, lista para ser evaluada cuando corresponda. 
+
+``` ruby
+ム anio_actual = 2021
+ム anio_nuevo = proc { anio_actual = anio_actual + 1 }
+```
+
+Estos bloques de código pueden recibir parámetros escritos entre `||` separados por comas.
+
+``` ruby
+ム saludador = proc { |saludo, nombre| saludo + " " + nombre + ", que lindo día para programar, ¿no?" }
+```
+
+Dentro de cada bloque podemos usar y enviarle mensajes tanto a los parámetros del bloque (`saludo` y `nombre`) como a las variables declaradas fuera del mismo (`anio_actual`).
+
+Por último, para ejecutar el código dentro del bloque debemos enviarle el mensaje `call` con los argumentos correspondientes.
+
+``` ruby
+ム anio_nuevo.call
+=> 2022
+
+ム saludador.call("Hola", "Jor")
+=> "Hola Jor, que lindo día para programar, ¿no?"
 ```
 
 <h3 id="clases-e-instancias">Clases e instancias</h3>
@@ -630,10 +627,67 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 => 40
 ```
 
+<a id="stringupcase"></a>
+### `string.upcase`
+
+> A partir de la [Lección 4: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
+>
+> Retorna un nuevo string con todos los caracteres de `string` en mayúsculas.
+
+```ruby
+ム "libro".upcase
+=> "LIBRO"
+```
+
+<a id="stringsize"></a>
+### `string.size`
+
+> A partir de la [Lección 4: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
+>
+> Retorna la cantidad de caracteres de `string`.
+
+```ruby
+ム "camino".size
+=> 6
+```
+
+<a id="numeroeven"></a>
+### `numero.even?`
+
+> [Lección 4: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
+>
+> Nos permite saber si `numero` es par.
+
+```ruby
+ム 8.even?
+=> true
+
+ム 7.even?
+=> false
+```
+
+<a id="objetoequal-otro_objeto"></a>
+### `objeto.equal? otro_objeto`
+
+> A partir de la [Lección 4: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
+>
+> Nos permite saber si `objeto` y `otro_objeto` son referencias que apuntan a exactamente el mismo objeto.
+
+```ruby
+ム un_string = "lamparita"
+ム otro_string = un_string
+
+ム un_string.equal? "lamparita"
+=> false
+
+ム un_string.equal? otro_string
+=> true
+```
+
 <a id="coleccionpush-elemento"></a>
 ### `coleccion.push elemento`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Agrega `elemento` a `coleccion`.
 
@@ -649,7 +703,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="colecciondelete-elemento"></a>
 ### `coleccion.delete elemento`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Remueve `elemento` de `coleccion`.
 
@@ -665,7 +719,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="coleccioninclude-elemento"></a>
 ### `coleccion.include? elemento`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Nos permite saber si `elemento` pertenece a `coleccion`.
 
@@ -679,7 +733,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="coleccionsize"></a>
 ### `coleccion.size`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Retorna la cantidad de elementos dentro de `coleccion`.
 
@@ -691,7 +745,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="coleccionselect-bloqueconcondicion"></a>
 ### `coleccion.select bloque_con_condicion`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Retorna una nueva colección con los elementos de `coleccion` que cumplan con la condición de `bloque_con_condicion`. Este método no tiene efecto sobre `coleccion`.
 
@@ -703,7 +757,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="coleccionfind-bloqueconcondicion"></a>
 ### `coleccion.find bloque_con_condicion`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Retorna el primer el elemento de `coleccion` que cumpla con la condición de `bloque_con_condicion`. Si ningún elemento cumple la condición nos devuelve `nil`.
 
@@ -715,7 +769,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="coleccionall-bloqueconcondicion"></a>
 ### `coleccion.all? bloque_con_condicion`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Nos permite saber si todos los elementos de `coleccion` cumplen con la condición de `bloque_con_condicion`.
 
@@ -730,7 +784,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="coleccionmap-bloque"></a>
 ### `coleccion.map bloque`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Retorna una nueva colección con el resultado de ejecutar el código de `bloque` por cada elemento de `coleccion`.
 
@@ -742,7 +796,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="coleccioncount-bloqueconcondicion"></a>
 ### `coleccion.count bloque_con_condicion`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Retorna cuántos elementos de `coleccion` cumplen con la condición de `bloque_con_condicion`.
 
@@ -754,7 +808,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="coleccionsum-bloque"></a>
 ### `coleccion.sum bloque`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Retorna la suma de los valores obtenidos al ejecutar el código de `bloque` en cada elemento de `coleccion`.
 
@@ -768,7 +822,7 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 <a id="coleccioneach-bloque"></a>
 ### `coleccion.each bloque`
 
-> A partir de la [Lección 4: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
+> A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 >
 > Ejecuta el código de bloque por cada elemento de `coleccion`. El método `each` no retorna una nueva colección sino que tiene efecto sobre la original.
 
@@ -776,63 +830,6 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 ム golondrinas = [Pepita, Norita, Mercedes]
 
 ム golondrinas.each { |una_golondrina| una_golondrina.comer_lombriz! } # Hace que cada golondrina de la colección coma lombriz.
-```
-
-<a id="stringupcase"></a>
-### `string.upcase`
-
-> A partir de la [Lección 5: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
->
-> Retorna un nuevo string con todos los caracteres de `string` en mayúsculas.
-
-```ruby
-ム "libro".upcase
-=> "LIBRO"
-```
-
-<a id="stringsize"></a>
-### `string.size`
-
-> A partir de la [Lección 5: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
->
-> Retorna la cantidad de caracteres de `string`.
-
-```ruby
-ム "camino".size
-=> 6
-```
-
-<a id="numeroeven"></a>
-### `numero.even?`
-
-> [Lección 5: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
->
-> Nos permite saber si `numero` es par.
-
-```ruby
-ム 8.even?
-=> true
-
-ム 7.even?
-=> false
-```
-
-<a id="objetoequal-otro_objeto"></a>
-### `objeto.equal? otro_objeto`
-
-> A partir de la [Lección 5: Referencias](../../guides/mumukiproject/mumuki-guia-ruby-referencias)
->
-> Nos permite saber si `objeto` y `otro_objeto` son referencias que apuntan a exactamente el mismo objeto.
-
-```ruby
-ム un_string = "lamparita"
-ム otro_string = un_string
-
-ム un_string.equal? "lamparita"
-=> false
-
-ム un_string.equal? otro_string
-=> true
 ```
 
 <a id="clasenew"></a>
