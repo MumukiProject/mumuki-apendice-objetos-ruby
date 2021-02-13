@@ -1,32 +1,31 @@
 <ul>
 
-<li><a title="" href="#referencia-rapida-del-lenguaje-ruby">Referencia rápida del lenguaje Ruby</a>
+<li><a title="" href="#referencia-rapida-del-lenguaje-ruby">El lenguaje Ruby</a>
+<li><a title="" href="#conceptos-de-programacion-con-objetos">Conceptos de programación con objetos</a>
 <ul>
 <li><a title="" href="#objeto">Objeto</a></li>
 <li><a title="" href="#ambiente">Ambiente</a></li>
 <li><a title="" href="#envio-de-mensajes">Envío de mensajes</a></li>
-<li><a title="" href="#interfaz">Interfaz</a></li>
-<li><a title="" href="#declaracion-de-objetos">Declaración de objetos</a></li>
+<li><a title="" href="#definicion-de-objetos">Definición de objetos</a></li>
 <li><a title="" href="#definicion-de-metodos">Definición de métodos</a></li>
+<li><a title="" href="#interfaz">Interfaz</a></li>
 <li><a title="" href="#asignacion">Asignación</a></li>
 <li><a title="" href="#self"><code>self</code></a></li>
 <li><a title="" href="#responsabilidad-y-delegacion">Responsabilidad y delegación</a></li>
 <li><a title="" href="#atributos">Atributos</a></li>
 <li><a title="" href="#estado">Estado</a></li>
-<li><a title="" href="#accesors">Accesors</a></li>
+<li><a title="" href="#accessors">Accessors</a></li>
+<li><a title="" href="#encapsulamiento">Encapsulamiento</a></li>
 <li><a title="" href="#convenciones-para-la-nominacion-de-metodos">Convenciones para la nominación de métodos</a></li>
 <li><a title="" href="#alternativa-condicional">Alternativa Condicional</a></li>
 <li><a title="" href="#polimorfismo">Polimorfismo</a></li>
-<li><a title="" href="#encapsulamiento">Encapsulamiento</a></li>
 <li><a title="" href="#referencias">Referencias</a></li>
 <li><a title="" href="#colecciones">Colecciones</a></li>
 <li><a title="" href="#bloques-de-codigo">Bloques de código</a></li>
 <li><a title="" href="#clases-e-instancias">Clases e instancias</a></li>
-<li><a title="" href="#constructores">Constructores</a></li>
 <li><a title="" href="#herencia">Herencia</a></li>
 <li><a title="" href="#redefinicion">Redefinición</a></li>
 <li><a title="" href="#clases-abstractas">Clases abstractas</a></li>
-<li><a title="" href="#metodos-abstractos">Métodos abstractos</a></li>
 <li><a title="" href="#super"><code>super</code></a></li>
 <li><a title="" href="#excepciones">Excepciones</a></li>
 </ul>
@@ -60,15 +59,16 @@
 <li><a title="" href="#coleccionsum-bloque"><code>coleccion.sum bloque</code></a></li>
 <li><a title="" href="#coleccioneach-bloque"><code>coleccion.each bloque</code></a></li>
 <li><a title="" href="#clasenew"><code>Clase.new</code></a></li>
-<li><a title="" href="#raise-mensaje"><code>raise mensaje</code></a></li>
 </ul>
 </li>
 
 </ul>
   
-<h2 id="referencia-rapida-del-lenguaje-ruby">Referencia rápida del lenguaje Ruby</h2>
+<h2 id="referencia-rapida-del-lenguaje-ruby">El lenguaje Ruby</h2>
 
 Ruby es un lenguaje de Programación Orientada a Objetos gratis y de código abierto creado en Japón. Su sintaxis amigable lo hace muy popular sobre todo en el desarrollo web; de hecho una gran parte de la Plataforma Mumuki está desarrollada en este lenguaje.
+
+<h2 id="conceptos-de-programacion-con-objetos">Conceptos de programación con objetos</h2>
 
 <h3 id="objeto">Objeto y ambiente</h3>
 
@@ -96,17 +96,11 @@ En este caso `Pepita` es el objeto al cual le enviamos:
 * el mensaje `volar!` que no recibe argumentos;
 * y el mensaje `comer!` con el argumento `20`.
 
-<h3 id="interfaz">Interfaz</h3>
-
-> A partir de la [Lección 1: Objetos y mensajes](../../guides/mumukiproject/mumuki-guia-ruby-objetos-y-mensajes)
-
-Interfaz es el conjunto de mensajes que entiende un objeto.
-
-<h3 id="declaracion-de-objetos">Declaración de objetos</h3>
+<h3 id="definicion-de-objetos">Definición de objetos</h3>
 
 > A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
 
-La declaración de objetos en Ruby comienza anteponiendo `module` antes del nombre y finaliza con `end`.
+La definición de objetos en Ruby comienza anteponiendo `module` antes del nombre y finaliza con `end`.
 
 ```ruby
 module Pepita
@@ -134,6 +128,14 @@ module Pepita
     end
 end
 ```
+
+<h3 id="interfaz">Interfaz</h3>
+
+> A partir de la [Lección 1: Objetos y mensajes](../../guides/mumukiproject/mumuki-guia-ruby-objetos-y-mensajes)
+
+Interfaz es el conjunto de mensajes que entiende un objeto. En el ejemplo anterior, la interfaz de `Pepita` está compuesta por los mensajes `cantar!`, `volar!` y `comer!`.
+
+<img src="http://www.plantuml.com/plantuml/png/7St13S8m34RXkwTmD-a8R12vwGzOYftASP40iJjgRf_UvQqZ9VAqHkg9k4i5tt1e2d-9cU68Xyh5AfuIosGtH6dTjj3FBA_U90gyL8rwjZuM-X4zTGV3ZdopmJR485hX-_Nx0m00" width="165" />
 
 <h3 id="asignacion">Asignación</h3>
 
@@ -177,13 +179,17 @@ La responsabilidad, en la programación con objetos, está relacionada con qué 
 
 > A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
 
-Los atributos son objetos que me permiten representar una característica de otro objeto. Un objeto conoce a todos sus atributos por lo que puede enviarles mensajes. Los atributos se escriben anteponiendo `@`.
+Los atributos son objetos que me permiten representar una característica de otro objeto. Un objeto conoce a todos sus atributos por lo que puede enviarles mensajes. Los atributos se escriben anteponiendo `@` y si bien no es necesario inicializarlos, hasta que no lo hagamos valdrán `nil`.
 
 ```ruby
 module Pepita
     @energia = 100
 
     def self.cantar!
+    end
+
+    def self.ciudad=(una_ciudad)
+        @ciudad = una_ciudad
     end
 
     def self.volar!(distancia)
@@ -197,20 +203,21 @@ end
 
 En este caso `@energia` es un atributo de `Pepita` que:
 
-* tiene un valor inicial de `100`;
-* cuando `Pepita` recibe el mensaje `volar!` disminuye el doble de la distancia recorrida.
+* `@energia` tiene un valor inicial de `100`;
+* cuando `Pepita` recibe el mensaje `volar!` disminuye su `@energia` el doble de la distancia recorrida.
+* `@ciudad` vale `nil` hasta que no le enviemos a `Pepita` el mensaje `ciudad=` con una ciudad como argumento.
 
 <h3 id="estado">Estado</h3>
 
 > A partir de la [Lección 2: Definiendo objetos: métodos y estado](../../guides/mumukiproject/mumuki-guia-ruby-definiendo-objetos-metodos-y-estado)
 
-El estado de un objeto es el conjunto de atributos que posee. Todos los estados son privados, para acceder o modificar los atributos de un objeto es necesario definir métodos dentro del mismo.
+El estado de un objeto es el conjunto de atributos que posee. Todos los atributos son privados, para acceder o modificar los atributos de un objeto es necesario definir métodos dentro del mismo.
 
-<h3 id="accesors">Accesors</h3>
+<h3 id="accessors">Accessors</h3>
 
 > A partir de la [Lección 3: Polimorfismo y encapsulamiento](../../guides/mumukiproject/mumuki-guia-ruby-polimorfismo)
 
-Los accesors son métodos que me permiten acceder o modificar el estado de un objeto y son conocidos como getters y setters respectivamente.
+Los accessors son métodos que me permiten acceder o modificar el estado de un objeto y son conocidos como getters y setters respectivamente.
 
 ```ruby
 module Pepita
@@ -225,6 +232,49 @@ module Pepita
     end
 end
 ```
+
+<h3 id="encapsulamiento">Encapsulamiento</h3>
+
+> A partir de la [Lección 3: Polimorfismo y encapsulamiento](../../guides/mumukiproject/mumuki-guia-ruby-polimorfismo)
+
+El encapsulamiento es la recomendable práctica de minimizar la exposición del estado de nuestros objetos. Para ello definiremos solo aquellos _accessors_ que sean indispensables; tengamos en cuenta que no siempre vamos a querer definir _getters_ y/o _setters_ para todos los atributos de cada objeto. Veamos un ejemplo:
+
+```ruby
+module AutoDeFabi
+	@patente = "AAA 111"
+	@nafta = 200
+	@color = "rojo"
+
+	def self.patente
+		@patente
+	end
+
+	def self.color=(un_color)
+		@color = un_color
+	end
+
+	def self.cargar!(cantidad)
+		@nafta += cantidad
+	end
+end
+
+module Fabi
+	def self.pintar_auto!(un_color)
+		AutoDeFabi.color = un_color
+	end
+
+	def self.cargar_nafta!(una_cantidad)
+		AutoDeFabi.cargar! una_cantidad
+	end
+end
+```
+
+En este caso `AutoDeFabi`:
+
+* tiene definido un _getter_ para su atributo `@patente`. Sin embargo, no define un _setter_ ya que tiene sentido que pueda decir su patente pero que no se pueda modificar externamente;
+* tiene un _setter_ para su atributo `@color` ya que el objeto `Fabi` puede modificarlo directamente;
+* no define ningún _accessor_ para su atributo `@nafta` ya que en caso que `Fabi` desee cargar nafta le enviará el mensaje `cargar!` a `AutoDeFabi`.
+
 
 <h3 id="convenciones-para-la-nominacion-de-metodos">Convenciones para la nominación de métodos</h3>
 
@@ -253,11 +303,13 @@ module Pepita
         @energia = @energia - distancia * 2
     end
     
-    def self.esta_cansada?
+    def self.cansada?
       @energia < 10
     end
 end
 ```
+
+Si bien nuestro código funcionará correctamente en caso de no respetar estas convenciones, será menos comprensible para otras personas que lo lean.
 
 <h3 id="alternativa-condicional">Alternativa Condicional</h3>
 
@@ -266,7 +318,7 @@ end
 La alternativa condicional en Ruby comienza con `if` seguido por la condición y termina con `end`:
 
 ```ruby
-if Pepita.esta_aburrida?
+if Pepita.aburrida?
   Pepita.volar! 10
 end
 ```
@@ -274,7 +326,7 @@ end
 En caso de contar con un rama de `else`, `end` va al final del mismo:
 
 ```ruby
-if Norita.tiene_hambre?
+if Norita.hambrienta?
     Norita.comer! 10, "alpiste"
 else
     Norita.volar! 15
@@ -284,9 +336,9 @@ end
 A diferencia de otros lenguajes, en Ruby podemos hacer `elsif` en caso de tener un `if` dentro de un `else`:
 
 ```ruby
-if Cleo.esta_cansada?
+if Cleo.cansada?
     Cleo.descansar!
-elsif Cleo.esta_aburrida?
+elsif Cleo.aburrida?
     Cleo.leer!
 else
     Cleo.trabajar!
@@ -297,13 +349,43 @@ end
 
 > A partir de la [Lección 3: Polimorfismo y encapsulamiento](../../guides/mumukiproject/mumuki-guia-ruby-polimorfismo)
 
-El polimorfismo en objetos es la capacidad que tiene un objeto de poder enviarle el mismo mensaje indistintamente a objetos distintos. Estos objetos deben entender este mensaje más allá de cómo este definido el método asociado al mismo. Para que estemos ante un caso de polimorfismo es necesaria la presencia de al menos tres objetos: uno que envíe el mensaje y dos distintos que puedan entenderlo.
+El polimorfismo en objetos es la capacidad que tiene un objeto de poder enviarle el mismo mensaje indistintamente a objetos diferentes. Estos objetos deben entender este mensaje más allá de cómo este definido el método asociado al mismo, es decir, dos o más objetos son polimórficos cuando comparten una interfaz. Para que estemos ante un caso de polimorfismo es necesaria la presencia de al menos tres objetos: uno que envíe el mensaje y dos distintos que puedan entenderlo. Veámoslo en un ejemplo:
 
-<h3 id="encapsulamiento">Encapsulamiento</h3>
+Supongamos que `Agus` puede realizar llamadas por celular enviandole un mensaje `llamar!` con un parámetro minutos a su atributo `@celular`: 
 
-> A partir de la [Lección 3: Polimorfismo y encapsulamiento](../../guides/mumukiproject/mumuki-guia-ruby-polimorfismo)
+```ruby
+module Agus
+	def self.celular=(un_celular)
+		@celular = un_celular
+	end
 
-Una buena práctica es definir solo aquellos accesors que sean indispensables para minimizar la exposición del estado de nuestros objetos. A esta práctica la llamamos encapsulamiento.
+	def self.realizar_llamada!(minutos)
+		@celular.llamar! minutos
+	end
+end
+```
+
+El celular que `Agus` utiliza puede ser tanto su `CelularPersonal` como su `CelularLaboral`:
+
+```ruby
+module CelularPersonal
+	@saldo = 200
+
+	def self.llamar!(minutos)
+		@saldo -= minutos
+	end
+end
+
+module CelularLaboral
+	@minutos_consumidos = 0
+
+	def self.llamar!(minutos)
+		@minutos_consumidos += minutos
+	end
+end
+```
+
+Gracias a que `CelularPersonal` y `CelularLaboral` son polimórficos para el mensaje `llamar!`, `Agus` puede realizar llamadas sin tener que verificar qué celular está utilizando. 
 
 <h3 id="referencias">Referencias</h3>
 
@@ -322,8 +404,8 @@ dia.upcase
 
 ``` ruby
 "insomnio".upcase
-            ^
-            +-- Acá hay una referencia implícita al objeto "insomnio"
+          ^
+          +-- Acá hay una referencia implícita al objeto "insomnio"
 ```
 
 * los objetos bien conocidos (los que declaramos con `module`)
@@ -364,10 +446,20 @@ end
 
 > A partir de la [Lección 5: Colecciones](../../guides/mumukiproject/mumuki-guia-ruby-colecciones)
 
-Las colecciones son objetos que contienen otros objetos. Un tipo de colección son las listas, las cuales se escriben entre corchetes (`[]`) y permiten tener objetos repetidos con un orden determinado dentro de ellas.
+Las colecciones son objetos que contienen referencias a otros objetos. Un tipo de colección son las _listas_, las cuales se escriben entre corchetes (`[]`) y permiten tener objetos repetidos con un orden determinado dentro de ellas:
 
 ``` ruby
-ム libros = [Fundacion, Socorro, Elevacion, Kriptonita]
+ム libros = [Fundacion, Socorro, Elevacion, Kriptonita, Socorro]
+```
+
+Otro tipo de colecciones muy común son los _sets_, los cuales a diferencia de las listas no pueden tener elementos repetidos y sus elementos no tienen un orden determinado:
+
+``` ruby
+ム numeros_aleatorios = [1,27,8,7,8,27,87,1]
+ム numeros_aleatorios
+=> [1,27,8,7,8,27,87,1]
+ム numeros_aleatorios.to_set
+=> #<Set: {1, 27, 8, 7, 87}>
 ```
 
 <h3 id="bloques-de-codigo">Bloques de código</h3>
@@ -403,41 +495,78 @@ Por último, para ejecutar el código dentro del bloque debemos enviarle el mens
 
 > A partir de la [Lección 6: Clases e Instancias](../../guides/mumukiproject/mumuki-guia-ruby-clases-e-instancias)
 
-Las clases son objetos que sirven de moldes para crear nuevos objetos que tienen el mismo comportamiento. Estos nuevos objetos creados a partir de una clase son instancias de la misma. Es importante tener en cuenta que:
+Las clases son objetos que sirven de moldes para crear nuevos objetos que tienen el mismo comportamiento.
 
-* Todo instancia pertenece a una y sólo una clase.
-* No se puede cambiar la clase de una instancia en tiempo de ejecución.
+Por ejemplo, si tuvieramos dos perros representados con los objetos `Firulais` y `Stimpy`:
 
-<h3 id="constructores">Constructores</h3>
+```ruby
+class Firulais
+    @energia = 200
 
-> A partir de la [Lección 6: Clases e Instancias](../../guides/mumukiproject/mumuki-guia-ruby-clases-e-instancias)
+    def self.jugar!(un_tiempo)
+        @energia -= un_tiempo
+    end
 
-El método `initialize` de las clases permite especificar cómo se inicializan las instancias de una clase. En este método declararemos los valores iniciales de los atributos.
-
-``` ruby
-class Persona
-    def initialize(peso)
-        @peso = peso
-        @dientes = 0
+    def recibir_duenio!
+        @energia += 100
     end
 end
 
-elena = Persona.new 480
-fausto = Persona.new 390
+class Stimpy
+    @energia = 300
+
+    def self.jugar!(un_tiempo)
+        @energia -= un_tiempo
+    end
+
+    def recibir_duenio!
+        @energia += 100
+    end
+end
 ```
+
+Podemos ver que tienen el mismo comportamiento. Para poder solucionar esta repetición podríamos crear la clase `Perro`:
+
+```ruby
+class Perro
+    def initialize(energia)
+        @energia = energia
+    end
+    
+    def jugar!(un_tiempo)
+        @energia -= un_tiempo
+    end
+
+    def recibir_duenio!
+        @energia += 100
+    end
+end
+```
+
+El método `initialize` de las clases permite especificar cómo se inicializan las instancias de una clase. En este método declararemos los valores iniciales de los atributos. Por último para crear nuestros objetos debemos hacer:
+
+``` ruby
+firulais = Perro.new 200
+stimpy = Perro.new 300
+```
+
+Estos nuevos objetos creados a partir de una clase (`firulais` y `stimpy`) son instancias de la misma. Es importante tener en cuenta que:
+
+* Todo instancia pertenece a una y sólo una clase.
+* No se puede cambiar la clase de una instancia en tiempo de ejecución.
 
 <h3 id="herencia">Herencia</h3>
 
 > A partir de la [Lección 7: Herencia](../../guides/mumukiproject/mumuki-guia-ruby-herencia)
 
-Cuando dos objetos repiten lógica, creamos una clase con el comportamiento en común. En el caso que dos clases repitan lógica debemos crear una nueva clase, a la cual llamamos superclase, que la contenga, definiendo en cada una de las clases iniciales, llamadas subclases, sólo lo particular de cada una.
+Cuando dos objetos repiten lógica, creamos una clase con el comportamiento en común. En el caso que dos clases repitan lógica deberíamos crear una nueva clase a la cual llamamos superclase. A esta nueva clase llevaremos los métodos repetidos y haremos que las clases originales hereden de ella. Estas subclases que heredan de la superclase solo contendrán su comportamiento particular.
 
 Por ejemplo si tuvieramos:
 
 ```ruby
 class Gato
     def initialize(energia)
-        @energia = energia
+      @energia = energia
     end
 
     def jugar!(un_tiempo)
@@ -445,7 +574,7 @@ class Gato
     end
     
     def recibir_duenio!
-        @energia -= 10
+      @energia -= 10
     end
 end
 
@@ -474,9 +603,6 @@ class Mascota
 
     def jugar!(un_tiempo)
 	    @energia -= un_tiempo
-    end
-    
-    def recibir_duenio!
     end
 end
 ```
@@ -521,13 +647,7 @@ end
 
 > A partir de la [Lección 7: Herencia](../../guides/mumukiproject/mumuki-guia-ruby-herencia)
 
-Las clases abstractas son clases que no se desea instanciar. Sirven para abstraer la lógica repetida de otras clases pero no la usaremos como molde de otros objetos. Aquellas que si instanciaremos son las llamadas clases concretas. En el ejemplo anterior `Mascota` es una clase abstracta mientras que `Gato` y `Perro` son clases concretas.
-
-<h3 id="metodos-abstractos">Métodos abstractos</h3>
-
-> A partir de la [Lección 7: Herencia](../../guides/mumukiproject/mumuki-guia-ruby-herencia)
-
-Las clases abstractas especifican que métodos deben implementar aquellas clases que heredan de ella. Estos métodos, llamados abstractos, no tienen comportamiento y el mismo está definido en sus subclases en métodos concretos. Por ejemplo, en la clase `Mascota` tenemos el método concreto `jugar!` y el método abstracto `recibir_duenio!`.
+Las clases abstractas son clases que no se desea instanciar. Sirven para abstraer la lógica repetida de otras clases pero no las usaremos como molde de otros objetos. En contraposición, aquellas que sí instanciaremos son las llamadas clases concretas. En el ejemplo anterior `Mascota` es una clase abstracta mientras que `Gato` y `Perro` son clases concretas.
 
 <a id="super"></a>
 ### `super`
@@ -551,7 +671,12 @@ end
 
 > A partir de la [Lección 8: Excepciones](../../guides/mumukiproject/mumuki-guia-ruby-excepciones)
 
-Una excepción es una indicación de que algo salió mal. Cuando lanzamos una excepción provocamos un error explícito que interrumpe el flujo de nuestro programa. La excepción no solo aborta el método en el cual la lanzamos sino también la ejecución de todos los métodos de la cadena de envío de mensajes pero no descarta los cambios realizados anteriormente; es por este motivo que es importante saber en qué momento debemos lanzarla. Por último, el mensaje con el cual lanzamos la excepción debe ser expresivo para entender por qué se interrumpió el flujo.
+Una excepción es una indicación de que algo salió mal. Cuando lanzamos una excepción provocamos un error explícito que interrumpe el flujo de nuestro programa. La excepción no solo aborta el método en el cual la lanzamos sino también la ejecución de todos los métodos de la cadena de envío de mensajes pero no descarta los cambios realizados anteriormente; es por este motivo que es importante saber en qué momento debemos hacerlo. Por último, para lanzar excepciones utilizaremos `raise` con un mensaje expresivo para entender por qué se interrumpió el flujo.
+
+```ruby
+ム raise "No se puede realizar esta acción"
+No se puede realizar esta acción (RuntimeError)
+```
 
 <h2 id="operadores">Operadores</h2>
 
@@ -842,16 +967,4 @@ A lo largo del capítulo "Programación con Objetos" utilizamos algunos métodos
 ```ruby
 ム guitarra = Instrumento.new
 ム piano = Instrumento.new
-```
-
-<a id="raise-mensaje"></a>
-### `raise mensaje`
-
-> A partir de la [Lección 8: Excepciones](../../guides/mumukiproject/mumuki-guia-ruby-excepciones)
->
-> Lanza una excepción con `mensaje`.
-
-```ruby
-ム raise "Se rompió todo"
-Se rompió todo (RuntimeError)
 ```
