@@ -500,26 +500,26 @@ Las clases son objetos que sirven de moldes para crear nuevos objetos que tienen
 Por ejemplo, si tuvieramos dos perros representados con los objetos `Firulais` y `Stimpy`:
 
 ```ruby
-class Firulais
+module Firulais
     @energia = 200
 
     def self.jugar!(un_tiempo)
         @energia -= un_tiempo
     end
 
-    def recibir_duenio!
+    def self.recibir_duenio!
         @energia += 100
     end
 end
 
-class Stimpy
+module Stimpy
     @energia = 300
 
     def self.jugar!(un_tiempo)
         @energia -= un_tiempo
     end
 
-    def recibir_duenio!
+    def self.recibir_duenio!
         @energia += 100
     end
 end
